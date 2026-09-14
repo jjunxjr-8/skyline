@@ -1,0 +1,130 @@
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+  <div class="crest"><img src="NLCS_logo_white.png" alt="NLCS logo"></div>
+  <div>
+    <span class="credits">COSMOS X Student Council</span>
+    <h1>COSMOS Project</h1>
+    <p class="subtitle">POWERED BY COSMOS</p>
+  </div>
+</header>
+
+  <input class="search" id="filter" type="text" placeholder="Search...">
+
+  <div id="groups"></div>
+  <p class="empty" id="empty">Not this one!</p>
+  <footer>
+    <span>Powered by COSMOS</span>
+    <span class="divider">•</span>
+    <span>Managed by The Student Council</span>
+  </footer>
+</div>
+
+</div>
+
+<script>
+  const DATA = {
+    "COSMOS Services": [
+      { name: "COSMOS Cloud — Society & Enterprise List", url: "https://cloud.nlcscosmos.com" },
+      { name: "COSMOS RoboParts — VEX Robotics Order Service", url: "https://roboparts.nlcscosmos.com" },
+      { name: "COSMOS Rankings — House Competitions Scoreboard", url: "https://houses.nlcscosmos.com" },
+      { name: "COSMOS MediaCube — NLCS Publications", url: "https://mediacube.nlcscosmos.com" },
+      { name: "COSMOS OneClick — AI Powered Drive Search ", url: "https://nlcscosmos.com/oneclick" },
+      { name: "COSMOS QuickScope — AI Powered Email Search", url: "https://nlcscosmos.com/quickscope" },
+      { name: "COSMOS Larry — NLCS Library's AI Chatbot", url: "#" },
+      
+    ],
+    "Work stuff": [
+      { name: "Google Classroom", url: "https://classroom.google.com/h/st" },
+    ],
+    "Skl stuff": [
+      { name: "School Calendar", url: "#" },
+      { name: "Parent Portal", url: "#" }
+    ],
+    "CCAsssssss": [
+      { name: "Cosmos Cloud Society List", url: "#" },
+    ],
+    "CCAssss": [
+      { name: "Cosmos Cloud Society List", url: "#" },
+    ],
+    "CCAs": [
+      { name: "Cosmos Cloud Society List", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+
+    ],
+    "CCAs": [
+      { name: "Cosmos Cloud Society List", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+    ],
+    "CCAs": [
+      { name: "Cosmos Cloud Society List", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      { name: "PLaceholder hahahah", url: "#" },
+      
+    ],
+    "Support": [
+      { name: "PLaceholder hahahah", url: "#" },
+    ],
+  };
+
+  const groupsEl = document.getElementById('groups');
+  const emptyEl = document.getElementById('empty');
+  const filterEl = document.getElementById('filter');
+
+  function render(query){
+    const q = (query || '').trim().toLowerCase();
+    groupsEl.innerHTML = '';
+    let anyVisible = false;
+
+    Object.entries(DATA).forEach(([group, items]) => {
+      const filtered = items.filter(i => i.name.toLowerCase().includes(q));
+      if(filtered.length === 0) return;
+      anyVisible = true;
+
+      const groupDiv = document.createElement('div');
+      groupDiv.className = 'group';
+
+      const label = document.createElement('p');
+      label.className = 'group-label';
+      label.textContent = group;
+      groupDiv.appendChild(label);
+
+      const linksDiv = document.createElement('div');
+      linksDiv.className = 'links';
+
+      filtered.forEach(item => {
+        const a = document.createElement('a');
+        a.className = 'link-row';
+        a.href = item.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.innerHTML = `<span class="dot"></span><span class="link-name">${item.name}</span><span class="link-arrow">&rarr;</span>`;
+        linksDiv.appendChild(a);
+      });
+
+      groupDiv.appendChild(linksDiv);
+      groupsEl.appendChild(groupDiv);
+    });
+
+    emptyEl.style.display = anyVisible ? 'none' : 'block';
+  }
+
+  filterEl.addEventListener('input', e => render(e.target.value));
+  render('');
+</script>
+
+</body>
+</html>
