@@ -1,130 +1,171 @@
-</style>
-</head>
-<body>
 
-<div class="page">
-  <header>
-  <div class="crest"><img src="NLCS_logo_white.png" alt="NLCS logo"></div>
-  <div>
-    <span class="credits">COSMOS X Student Council</span>
-    <h1>COSMOS Project</h1>
-    <p class="subtitle">POWERED BY COSMOS</p>
-  </div>
-</header>
-
-  <input class="search" id="filter" type="text" placeholder="Search...">
-
-  <div id="groups"></div>
-  <p class="empty" id="empty">Not this one!</p>
-  <footer>
-    <span>Powered by COSMOS</span>
-    <span class="divider">•</span>
-    <span>Managed by The Student Council</span>
-  </footer>
-</div>
-
-</div>
-
-<script>
-  const DATA = {
-    "COSMOS Services": [
-      { name: "COSMOS Cloud — Society & Enterprise List", url: "https://cloud.nlcscosmos.com" },
-      { name: "COSMOS RoboParts — VEX Robotics Order Service", url: "https://roboparts.nlcscosmos.com" },
-      { name: "COSMOS Rankings — House Competitions Scoreboard", url: "https://houses.nlcscosmos.com" },
-      { name: "COSMOS MediaCube — NLCS Publications", url: "https://mediacube.nlcscosmos.com" },
-      { name: "COSMOS OneClick — AI Powered Drive Search ", url: "https://nlcscosmos.com/oneclick" },
-      { name: "COSMOS QuickScope — AI Powered Email Search", url: "https://nlcscosmos.com/quickscope" },
-      { name: "COSMOS Larry — NLCS Library's AI Chatbot", url: "#" },
-      
-    ],
-    "Work stuff": [
-      { name: "Google Classroom", url: "https://classroom.google.com/h/st" },
-    ],
-    "Skl stuff": [
-      { name: "School Calendar", url: "#" },
-      { name: "Parent Portal", url: "#" }
-    ],
-    "CCAsssssss": [
-      { name: "Cosmos Cloud Society List", url: "#" },
-    ],
-    "CCAssss": [
-      { name: "Cosmos Cloud Society List", url: "#" },
-    ],
-    "CCAs": [
-      { name: "Cosmos Cloud Society List", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-
-    ],
-    "CCAs": [
-      { name: "Cosmos Cloud Society List", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-    ],
-    "CCAs": [
-      { name: "Cosmos Cloud Society List", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      { name: "PLaceholder hahahah", url: "#" },
-      
-    ],
-    "Support": [
-      { name: "PLaceholder hahahah", url: "#" },
-    ],
-  };
-
-  const groupsEl = document.getElementById('groups');
-  const emptyEl = document.getElementById('empty');
-  const filterEl = document.getElementById('filter');
-
-  function render(query){
-    const q = (query || '').trim().toLowerCase();
-    groupsEl.innerHTML = '';
-    let anyVisible = false;
-
-    Object.entries(DATA).forEach(([group, items]) => {
-      const filtered = items.filter(i => i.name.toLowerCase().includes(q));
-      if(filtered.length === 0) return;
-      anyVisible = true;
-
-      const groupDiv = document.createElement('div');
-      groupDiv.className = 'group';
-
-      const label = document.createElement('p');
-      label.className = 'group-label';
-      label.textContent = group;
-      groupDiv.appendChild(label);
-
-      const linksDiv = document.createElement('div');
-      linksDiv.className = 'links';
-
-      filtered.forEach(item => {
-        const a = document.createElement('a');
-        a.className = 'link-row';
-        a.href = item.url;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.innerHTML = `<span class="dot"></span><span class="link-name">${item.name}</span><span class="link-arrow">&rarr;</span>`;
-        linksDiv.appendChild(a);
-      });
-
-      groupDiv.appendChild(linksDiv);
-      groupsEl.appendChild(groupDiv);
-    });
-
-    emptyEl.style.display = anyVisible ? 'none' : 'block';
+  :root{
+    --bg: #aad8f7;
+    --surface: #ffffff;
+    --accent: #68B1E1;
+    --accent-soft: #fbe0da;
+    --ink: #294f7b;
+    --muted: #7c8299;
+    --border: #68B1E1;
   }
 
-  filterEl.addEventListener('input', e => render(e.target.value));
-  render('');
-</script>
+  *{ box-sizing: border-box; }
 
-</body>
-</html>
+  body{
+    margin: 0;
+    background: var(--bg);
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  .page{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  header{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 36px;
+  }
+
+  .crest{
+    height: 64px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .crest img{
+    height: 150%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  h1{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 35px;
+    letter-spacing: -0.01em;
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .subtitle{
+    color: var(--muted);
+    font-size: 14px;
+    margin: 4px 0 0;
+  }
+
+  .search{
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .search::placeholder{ color: var(--muted); }
+  .search:focus{ outline: none; border-color: var(--accent); }
+
+  .group{
+    margin-bottom: 28px;
+  }
+
+  .group-label{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 0 0 10px 4px;
+  }
+
+  .links{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .link-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.12s ease;
+  }
+  .link-row:last-child{ border-bottom: none; }
+  .link-row:hover{ background: var(--accent-soft); }
+
+  .dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--accent);
+  }
+
+  .link-name{
+    font-weight: 500;
+    font-size: 15px;
+    flex: 1;
+  }
+
+  .link-arrow{
+    color: var(--accent);
+    font-size: 15px;
+    opacity: 0.85;
+  }
+
+  .empty{
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    padding: 32px 0;
+    display: none;
+  }
+
+  .credits {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: inline-block;
+}
+footer {
+  margin-top: 56px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+footer span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.divider {
+  user-select: none;
+  opacity: 0.4;
+}
+
