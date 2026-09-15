@@ -1,7 +1,8 @@
 
   const DATA = {
     "COSMOS Services": [
-      { name: "COSMOS Cloud — Society & Enterprise List", url: "https://cloud.nlcscosmos.com" },
+      { name: "COSMOS Cloud — SEC Official Society List", url: "https://cloud.nlcscosmos.com" },
+      { name: "COSMOS Enterprises — SEC Official Enterprise List", url: "https://enterprise.nlcscosmos.com" },
       { name: "COSMOS RoboParts — VEX Robotics Order Service", url: "https://roboparts.nlcscosmos.com" },
       { name: "COSMOS Rankings — House Competitions Scoreboard", url: "https://houses.nlcscosmos.com" },
       { name: "COSMOS MediaCube — NLCS Publications", url: "https://mediacube.nlcscosmos.com" },
