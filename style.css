@@ -89,7 +89,6 @@ body {
   background-color: #eeeef0;
 }
 
-/* Dynamic colors per active sidebar item */
 .nav-item.active {
   background-color: var(--item-active-bg);
   color: var(--item-active-text);
@@ -251,7 +250,6 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--accent-blue);
   flex-shrink: 0;
 }
 
