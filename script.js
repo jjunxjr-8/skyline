@@ -24,20 +24,19 @@ const DATA = {
   ]
 };
 
-// Pastel palettes corresponding to each category
 const PALETTES = [
   {
-    iconBg: '#1a73e8',        // Blue
+    iconBg: '#1a73e8',        
     activeBg: '#e8f0fe',
     activeText: '#1a73e8',
-    cardBg: '#f4f8fe',        // Pastel frame tint
+    cardBg: '#f4f8fe',        
     cardBorder: '#d2e3fc',
-    btnBg: '#e8f0fe',         // Pastel Open button
+    btnBg: '#e8f0fe',         
     btnText: '#1a73e8',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`
   },
   {
-    iconBg: '#1e8e3e',        // Green
+    iconBg: '#1e8e3e',      
     activeBg: '#e6f4ea',
     activeText: '#137333',
     cardBg: '#f3f9f5',
@@ -47,7 +46,7 @@ const PALETTES = [
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>`
   },
   {
-    iconBg: '#f9ab00',        // Amber/Yellow
+    iconBg: '#f9ab00',        
     activeBg: '#fef7e0',
     activeText: '#b06000',
     cardBg: '#fffdf5',
@@ -57,7 +56,7 @@ const PALETTES = [
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>`
   },
   {
-    iconBg: '#9334e6',        // Purple
+    iconBg: '#9334e6',       
     activeBg: '#f3e8fd',
     activeText: '#7627b5',
     cardBg: '#faf5fe',
@@ -67,7 +66,7 @@ const PALETTES = [
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`
   },
   {
-    iconBg: '#d93025',        // Red
+    iconBg: '#d93025',        
     activeBg: '#fce8e6',
     activeText: '#c5221f',
     cardBg: '#fdf5f5',
@@ -141,7 +140,6 @@ function render(query) {
     groupCard.className = 'group-card';
     groupCard.id = `group-${slugify(group)}`;
     
-    // Apply matching pastel frame tint and border
     groupCard.style.backgroundColor = palette.cardBg;
     groupCard.style.borderColor = palette.cardBorder;
 
