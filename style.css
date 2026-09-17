@@ -1,8 +1,6 @@
 :root {
   --bg-color: #ffffff;
   --sidebar-bg: #f8f9fa;
-  --card-bg: #ffffff;
-  --card-hover-bg: #f1f3f4;
   --card-border: #dadce0;
   --input-bg: #f1f3f4;
   --input-border: #dadce0;
@@ -205,39 +203,38 @@ body {
 }
 
 .group-card {
-  background-color: var(--card-bg);
   border-radius: 16px;
   padding: 20px 24px;
   border: 1px solid var(--card-border);
   scroll-margin-top: 24px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .group-title {
   font-size: 16px;
-  font-weight: 500;
-  margin: 0 0 12px 0;
-  color: var(--text-main);
+  font-weight: 600;
+  margin: 0 0 14px 0;
 }
 
 .links-list {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .link-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
   text-decoration: none;
   color: var(--text-main);
   transition: background 0.15s ease;
 }
 
 .link-row:hover {
-  background-color: var(--card-hover-bg);
+  background-color: var(--row-hover-bg, rgba(0, 0, 0, 0.04));
 }
 
 .link-content {
@@ -261,18 +258,19 @@ body {
 .link-btn {
   font-size: 13px;
   font-weight: 500;
-  color: var(--accent-blue);
-  background: transparent;
   border: none;
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 16px;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
 }
 
 .link-row:hover .link-btn {
-  background-color: #e8f0fe;
+  filter: brightness(0.95);
+  transform: translateX(2px);
 }
 
 .empty {
@@ -288,38 +286,13 @@ body {
   margin-top: 48px;
   padding-top: 24px;
   border-top: 1px solid var(--card-border);
+  text-align: center;
 }
 
 .footer-disclaimer {
   font-size: 12px;
   color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.learn-more {
-  color: var(--accent-blue);
-  text-decoration: none;
-  margin-left: 4px;
-}
-
-.learn-more:hover {
-  text-decoration: underline;
-}
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 12px;
-}
-
-.footer-links a:hover {
-  color: var(--text-main);
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
