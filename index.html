@@ -10,12 +10,12 @@
   <link rel="stylesheet" href="style.css">
   
   <style>
-    /* Inline containment fixes to guarantee it fits inside the sidebar */
+    /* Pin sidebar container height and flex direction */
     .sidebar {
       display: flex;
       flex-direction: column;
+      height: 100vh;
       box-sizing: border-box;
-      overflow: hidden;
     }
 
     .sidebar-nav {
@@ -23,19 +23,20 @@
       overflow-y: auto;
     }
 
+    /* Bottom-left alignment with padding */
     .sidebar-footer {
       margin-top: auto;
-      padding: 16px;
+      padding: 20px 24px; /* Adjust padding as needed */
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
       width: 100%;
       box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .sidebar-logo {
-      max-width: 100%;
-      max-height: 80px;
+      max-width: 140px; /* Constrains width within sidebar */
+      max-height: 50px;  /* Keeps logo proportioned */
       width: auto;
       height: auto;
       object-fit: contain;
@@ -63,7 +64,7 @@
       <nav class="sidebar-nav" id="sidebar-nav">
       </nav>
 
-      <!-- Sidebar Bottom Logo Container -->
+      <!-- Bottom Left Logo -->
       <div class="sidebar-footer">
         <img src="cosmos-logo.png" alt="COSMOS Logo" class="sidebar-logo" onerror="this.style.display='none'">
       </div>
