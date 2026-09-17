@@ -6,9 +6,8 @@
   <title>NLCS Website Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Google Analytics -->
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZT7E4P7HL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,311 +15,79 @@
     gtag('js', new Date());
     gtag('config', 'G-JZT7E4P7HL');
   </script>
-
-  <style>
-    :root {
-      --bg: #ffffff;
-      --surface: #ffffff;
-      --accent: #3b82f6;
-      --accent-soft: #f1f5f9;
-      --ink: #1e293b;
-      --muted: #64748b;
-      --border: #e2e8f0;
-    }
-
-    * { 
-      box-sizing: border-box; 
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      font-family: 'Inter', system-ui, sans-serif;
-      color: var(--ink);
-      min-height: 100vh;
-    }
-
-    .page {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 56px 24px 96px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 12px;
-      margin-bottom: 32px;
-      width: 100%;
-    }
-
-    .crest {
-      height: 72px;
-      width: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .crest img {
-      height: 100%;
-      width: auto;
-      object-fit: contain;
-    }
-
-    h1 {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800;
-      font-size: 36px;
-      letter-spacing: -0.01em;
-      margin: 0;
-      line-height: 1.15;
-    }
-
-    .credits {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: inline-block;
-    }
-
-    .search {
-      display: block;
-      width: 100%;
-      padding: 14px 20px;
-      border-radius: 30px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      color: var(--ink);
-      margin-bottom: 36px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: all 0.2s ease;
-    }
-
-    .search::placeholder { 
-      color: var(--muted); 
-    }
-
-    .search:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
-    }
-
-    #groups {
-      width: 100%;
-    }
-
-    .group {
-      margin-bottom: 28px;
-    }
-
-    .group-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      margin: 0 0 10px 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .links {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-    }
-
-    .link-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 20px;
-      text-decoration: none;
-      color: var(--ink);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.12s ease;
-    }
-
-    .link-row:last-child { 
-      border-bottom: none; 
-    }
-
-    .link-row:hover { 
-      background: var(--accent-soft); 
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      background: var(--accent);
-    }
-
-    .link-name {
-      font-weight: 500;
-      font-size: 15px;
-      flex: 1;
-    }
-
-    .link-arrow {
-      color: var(--accent);
-      font-size: 15px;
-      opacity: 0.85;
-      transition: transform 0.15s ease;
-    }
-
-    .link-row:hover .link-arrow {
-      transform: translateX(3px);
-    }
-
-    .empty {
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-      padding: 32px 0;
-      display: none;
-    }
-
-    footer {
-      margin-top: 48px;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      opacity: 0.7;
-    }
-
-    footer span {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .divider {
-      user-select: none;
-      opacity: 0.4;
-    }
-  </style>
 </head>
 <body>
 
-<div class="page">
-  <header>
-    <div class="crest">
-      <img src="NLCS_logo_white.png" alt="NLCS logo">
-    </div>
-    <div>
-      <span class="credits">COSMOS X Student Council</span>
-      <h1>COSMOS Project</h1>
-      <span class="credits">POWERED BY COSMOS</span>
-    </div>
-  </header>
+  <div class="layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="logo-text"><span class="logo-accent">COSMOS</span> Account</span>
+      </div>
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <!-- Sidebar items rendered dynamically in script.js -->
+      </nav>
+    </aside>
 
-  <input class="search" id="filter" type="text" placeholder="Search resources and services...">
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Action Bar -->
+      <header class="top-bar">
+        <div class="top-bar-actions">
+          <button class="icon-btn" title="Help">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+          </button>
+          <button class="icon-btn" title="Apps">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          </button>
+          <div class="user-avatar-small">
+            <img src="NLCS_logo_white.png" alt="NLCS logo" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </header>
 
-  <div id="groups"></div>
-  <p class="empty" id="empty">No matching links found!</p>
+      <!-- Profile / Hero Section -->
+      <section class="profile-hero">
+        <div class="avatar-large-wrapper">
+          <div class="avatar-large">
+            <img src="NLCS_logo_white.png" alt="NLCS Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%237cacf8\'><path d=\'M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z\'/></svg>'">
+          </div>
+          <div class="avatar-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#ffffff"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          </div>
+        </div>
+        <h1 class="user-name">COSMOS Project</h1>
+        <p class="user-email">COSMOS X Student Council • Powered by COSMOS</p>
+      </section>
 
-  <footer>
-    <span>Powered by COSMOS</span>
-    <span class="divider">•</span>
-    <span>Managed by The Student Council</span>
-  </footer>
-</div>
+      <!-- Search Section -->
+      <div class="search-container">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input class="search" id="filter" type="text" placeholder="Search archive services and links...">
+        </div>
+      </div>
 
-<script>
-  const DATA = {
-    "COSMOS Services": [
-      { name: "COSMOS Cloud — SEC Official Society List", url: "https://cloud.nlcscosmos.com" },
-      { name: "COSMOS Enterprises — SEC Official Enterprise List", url: "https://enterprise.nlcscosmos.com" },
-      { name: "COSMOS RoboParts — VEX Robotics Order Service", url: "https://roboparts.nlcscosmos.com" },
-      { name: "COSMOS Rankings — House Competitions Scoreboard", url: "https://houses.nlcscosmos.com" },
-      { name: "COSMOS MediaCube — NLCS Publications", url: "https://mediacube.nlcscosmos.com" },
-      { name: "COSMOS OneClick — AI Powered Drive Search", url: "https://nlcscosmos.com/oneclick" },
-      { name: "COSMOS QuickScope — AI Powered Email Search", url: "https://nlcscosmos.com/quickscope" },
-      { name: "COSMOS Larry — NLCS Library's AI Chatbot", url: "#" }
-    ],
-    "Work stuff": [
-      { name: "Google Classroom", url: "https://classroom.google.com/h/st" }
-    ],
-    "School stuff": [
-      { name: "School Calendar", url: "#" },
-      { name: "Parent Portal", url: "#" }
-    ],
-    "CCAs & Societies": [
-      { name: "Cosmos Cloud Society List", url: "#" },
-      { name: "Placeholder Activity 1", url: "#" },
-      { name: "Placeholder Activity 2", url: "#" },
-      { name: "Placeholder Activity 3", url: "#" }
-    ],
-    "Support": [
-      { name: "Student Support Desk", url: "#" }
-    ]
-  };
+      <!-- Links Container -->
+      <div id="groups" class="groups-container"></div>
+      <p class="empty" id="empty">Not this one!</p>
 
-  const groupsEl = document.getElementById('groups');
-  const emptyEl = document.getElementById('empty');
-  const filterEl = document.getElementById('filter');
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-disclaimer">
+          <span>Only you can see your settings. COSMOS keeps your data private, safe and secure.</span>
+          <a href="#" class="learn-more">Learn more</a>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Help</a>
+          <a href="#">About</a>
+        </div>
+      </footer>
+    </main>
+  </div>
 
-  function render(query) {
-    const q = (query || '').trim().toLowerCase();
-    groupsEl.innerHTML = '';
-    let anyVisible = false;
-
-    Object.entries(DATA).forEach(([group, items]) => {
-      const filtered = items.filter(i => i.name.toLowerCase().includes(q));
-      if (filtered.length === 0) return;
-      anyVisible = true;
-
-      const groupDiv = document.createElement('div');
-      groupDiv.className = 'group';
-
-      const label = document.createElement('p');
-      label.className = 'group-label';
-      label.textContent = group;
-      groupDiv.appendChild(label);
-
-      const linksDiv = document.createElement('div');
-      linksDiv.className = 'links';
-
-      filtered.forEach(item => {
-        const a = document.createElement('a');
-        a.className = 'link-row';
-        a.href = item.url;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.innerHTML = `<span class="dot"></span><span class="link-name">${item.name}</span><span class="link-arrow">&rarr;</span>`;
-        linksDiv.appendChild(a);
-      });
-
-      groupDiv.appendChild(linksDiv);
-      groupsEl.appendChild(groupDiv);
-    });
-
-    emptyEl.style.display = anyVisible ? 'none' : 'block';
-  }
-
-  filterEl.addEventListener('input', e => render(e.target.value));
-  render('');
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
