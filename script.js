@@ -9,7 +9,7 @@ const DATA = {
     { name: "COSMOS QuickScope — AI Powered Email Search", url: "https://nlcscosmos.com/quickscope" },
     { name: "COSMOS Larry — NLCS Library's AI Chatbot", url: "#" }
   ],
-  "Work stuff": [
+  "Maps": [
     { name: "Google Classroom", url: "https://classroom.google.com/h/st" }
   ],
   "Skl stuff": [
