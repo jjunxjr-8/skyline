@@ -9,7 +9,8 @@ const DATA = {
     { name: "COSMOS QuickScope — AI Powered Email Search", url: "https://nlcscosmos.com/quickscope" },
     { name: "COSMOS Larry — NLCS Library's AI Chatbot", url: "#" }
   ],
-  "Maps": [
+  "Maps & Photos": [
+    { name: "Campus Map Overview", url: "images/photos/image1.png" },
     { name: "Google Classroom", url: "https://classroom.google.com/h/st" }
   ],
   "Skl stuff": [
@@ -31,7 +32,7 @@ const PALETTES = [
     activeText: '#1a73e8',
     cardBg: '#f4f8fe',        
     cardBorder: '#d2e3fc',
-    btnBg: '#e8f0fe',         
+    btnBg: '#e8f0fe',          
     btnText: '#1a73e8',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`
   },
@@ -84,6 +85,14 @@ const filterEl = document.getElementById('filter');
 
 function slugify(text) {
   return text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-');
+}
+
+// Check if a URL points to an image
+function isImageUrl(url) {
+  if (!url || url === '#') return false;
+  const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg'];
+  const lowerUrl = url.toLowerCase();
+  return imageExtensions.some(ext => lowerUrl.includes(ext)) || lowerUrl.startsWith('images/');
 }
 
 function renderSidebar() {
@@ -153,24 +162,71 @@ function render(query) {
     linksList.className = 'links-list';
 
     filtered.forEach(item => {
-      const a = document.createElement('a');
-      a.className = 'link-row';
-      a.href = item.url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.style.setProperty('--row-hover-bg', palette.btnBg);
-      
-      a.innerHTML = `
-        <div class="link-content">
-          <span class="link-bullet" style="background-color: ${palette.iconBg};"></span>
-          <span class="link-name">${item.name}</span>
-        </div>
-        <button class="link-btn" style="background-color: ${palette.btnBg}; color: ${palette.btnText};">
-          Open
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21 12l-8.15-8.15-1.42 1.42L16.86 11H5v2z"/></svg>
-        </button>
-      `;
-      linksList.appendChild(a);
+      const isImg = isImageUrl(item.url);
+      const wrapper = document.createElement('div');
+      wrapper.className = 'link-wrapper';
+      wrapper.style.setProperty('--row-hover-bg', palette.btnBg);
+
+      if (isImg) {
+        // Image link row structure
+        wrapper.innerHTML = `
+          <div class="link-row">
+            <div class="link-content">
+              <span class="link-bullet" style="background-color: ${palette.iconBg};"></span>
+              <span class="link-name">${item.name}</span>
+            </div>
+            <button class="link-btn toggle-img-btn" style="background-color: ${palette.btnBg}; color: ${palette.btnText};">
+              View Image
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            </button>
+          </div>
+          <div class="image-preview-container">
+            <img class="preview-image" src="${item.url}" alt="${item.name}" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="img-error-msg" style="display:none;">Image standard path not found (${item.url})</div>
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="full-img-link" style="color: ${palette.btnText};">
+              Open full image in new tab ↗
+            </a>
+          </div>
+        `;
+
+        // Toggle visibility when clicked
+        const linkRow = wrapper.querySelector('.link-row');
+        const imgContainer = wrapper.querySelector('.image-preview-container');
+        const toggleBtn = wrapper.querySelector('.toggle-img-btn');
+
+        const toggleImage = (e) => {
+          e.preventDefault();
+          const isExpanded = imgContainer.classList.contains('active');
+          imgContainer.classList.toggle('active');
+          
+          toggleBtn.innerHTML = isExpanded 
+            ? `View Image <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>`
+            : `Hide Image <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`;
+        };
+
+        linkRow.addEventListener('click', toggleImage);
+
+      } else {
+        // Standard Link row structure
+        const a = document.createElement('a');
+        a.className = 'link-row';
+        a.href = item.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.innerHTML = `
+          <div class="link-content">
+            <span class="link-bullet" style="background-color: ${palette.iconBg};"></span>
+            <span class="link-name">${item.name}</span>
+          </div>
+          <button class="link-btn" style="background-color: ${palette.btnBg}; color: ${palette.btnText};">
+            Open
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21 12l-8.15-8.15-1.42 1.42L16.86 11H5v2z"/></svg>
+          </button>
+        `;
+        wrapper.appendChild(a);
+      }
+
+      linksList.appendChild(wrapper);
     });
 
     groupCard.appendChild(linksList);
