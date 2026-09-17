@@ -9,7 +9,7 @@ const DATA = {
     { name: "COSMOS QuickScope — AI Powered Email Search", url: "https://nlcscosmos.com/quickscope" },
     { name: "COSMOS Larry — NLCS Library's AI Chatbot", url: "#" }
   ],
-  "Maps": [
+  "Maps & Photos": [
     { name: "Senior School First Floor Map", url: "images/photos/map1.png" },
     { name: "Senior School Second Floor Map", url: "images/photos/map2.png" },
     { name: "Senior School Third Floor Map", url: "images/photos/map3.png" },
@@ -170,7 +170,7 @@ function render(query) {
       wrapper.style.setProperty('--row-hover-bg', palette.btnBg);
 
       if (isImg) {
-        // Image link row structure
+        // Image link row with Zoom Lens logic
         wrapper.innerHTML = `
           <div class="link-row">
             <div class="link-content">
@@ -183,20 +183,27 @@ function render(query) {
             </button>
           </div>
           <div class="image-preview-container">
-            <img class="preview-image" src="${item.url}" alt="${item.name}" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="img-zoom-wrapper">
+              <img class="preview-image" src="${item.url}" alt="${item.name}" onerror="this.onerror=null; this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='block';">
+              <div class="zoom-square"></div>
+            </div>
             <div class="img-error-msg" style="display:none;">Image standard path not found (${item.url})</div>
+            <div class="zoom-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+              Right-click and drag along the image to view zoomed square
+            </div>
             <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="full-img-link" style="color: ${palette.btnText};">
               Open full image in new tab ↗
             </a>
           </div>
         `;
 
-        // Toggle visibility when clicked
+        // Toggle Expand/Collapse
         const linkRow = wrapper.querySelector('.link-row');
         const imgContainer = wrapper.querySelector('.image-preview-container');
         const toggleBtn = wrapper.querySelector('.toggle-img-btn');
 
-        const toggleImage = (e) => {
+        linkRow.addEventListener('click', (e) => {
           e.preventDefault();
           const isExpanded = imgContainer.classList.contains('active');
           imgContainer.classList.toggle('active');
@@ -204,9 +211,74 @@ function render(query) {
           toggleBtn.innerHTML = isExpanded 
             ? `View Image <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>`
             : `Hide Image <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`;
+        });
+
+        // Right-Click Drag Zoom Square Logic
+        const zoomWrapper = wrapper.querySelector('.img-zoom-wrapper');
+        const previewImg = wrapper.querySelector('.preview-image');
+        const zoomSquare = wrapper.querySelector('.zoom-square');
+        let isRightDragging = false;
+
+        // Prevent default right-click context menu on image
+        zoomWrapper.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        const updateZoomSquare = (e) => {
+          const rect = previewImg.getBoundingClientRect();
+
+          // Calculate mouse position relative to image
+          let x = e.clientX - rect.left;
+          let y = e.clientY - rect.top;
+
+          // Clamp inside image bounds
+          x = Math.max(0, Math.min(x, rect.width));
+          y = Math.max(0, Math.min(y, rect.height));
+
+          const squareSize = 180; // 180px x 180px square
+          const zoomFactor = 2.5;  // 2.5x magnification factor
+
+          // Center the zoom square under the mouse
+          const squareX = x - squareSize / 2;
+          const squareY = y - squareSize / 2;
+
+          zoomSquare.style.left = `${squareX}px`;
+          zoomSquare.style.top = `${squareY}px`;
+
+          // Calculate scaled background size & offset
+          const bgWidth = rect.width * zoomFactor;
+          const bgHeight = rect.height * zoomFactor;
+
+          const bgX = (x * zoomFactor) - (squareSize / 2);
+          const bgY = (y * zoomFactor) - (squareSize / 2);
+
+          zoomSquare.style.backgroundSize = `${bgWidth}px ${bgHeight}px`;
+          zoomSquare.style.backgroundPosition = `-${bgX}px -${bgY}px`;
         };
 
-        linkRow.addEventListener('click', toggleImage);
+        zoomWrapper.addEventListener('mousedown', (e) => {
+          if (e.button === 2) { // Right Click
+            e.preventDefault();
+            isRightDragging = true;
+            zoomSquare.style.backgroundImage = `url("${previewImg.src}")`;
+            updateZoomSquare(e);
+            zoomSquare.style.display = 'block';
+          }
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (isRightDragging) {
+            e.preventDefault();
+            updateZoomSquare(e);
+          }
+        });
+
+        const stopRightDrag = () => {
+          if (isRightDragging) {
+            isRightDragging = false;
+            zoomSquare.style.display = 'none';
+          }
+        };
+
+        window.addEventListener('mouseup', stopRightDrag);
 
       } else {
         // Standard Link row structure
