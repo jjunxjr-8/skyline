@@ -24,7 +24,7 @@ const DATA = {
   ]
 };
 
-// Distinct colors and icons for each component in the sidebar menu
+// Distinct color palettes per category
 const PALETTES = [
   {
     iconBg: '#1a73e8',        // Blue
@@ -78,7 +78,6 @@ function renderSidebar() {
     const button = document.createElement('button');
     button.className = `nav-item ${index === 0 ? 'active' : ''}`;
     
-    // Set custom CSS variables on each button for unique active colors
     button.style.setProperty('--item-active-bg', palette.activeBg);
     button.style.setProperty('--item-active-text', palette.activeText);
 
@@ -108,10 +107,16 @@ function render(query) {
   groupsEl.innerHTML = '';
   let anyVisible = false;
 
-  Object.entries(DATA).forEach(([group, items]) => {
+  const groupKeys = Object.keys(DATA);
+
+  groupKeys.forEach((group, index) => {
+    const items = DATA[group];
     const filtered = items.filter(i => i.name.toLowerCase().includes(q));
     if (filtered.length === 0) return;
     anyVisible = true;
+
+    // Get matching color palette for this category
+    const palette = PALETTES[index % PALETTES.length];
 
     const groupCard = document.createElement('div');
     groupCard.className = 'group-card';
@@ -133,7 +138,7 @@ function render(query) {
       a.rel = 'noopener noreferrer';
       a.innerHTML = `
         <div class="link-content">
-          <span class="link-bullet"></span>
+          <span class="link-bullet" style="background-color: ${palette.iconBg};"></span>
           <span class="link-name">${item.name}</span>
         </div>
         <button class="link-btn">
