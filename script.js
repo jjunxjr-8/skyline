@@ -10,7 +10,7 @@ const DATA = {
     { name: "COSMOS Larry — NLCS Library's AI Chatbot", url: "#" }
   ],
   "Maps & Photos": [
-    { name: "Campus Map Overview", url: "images/photos/image1.png" },
+    { name: "Campus Map Overview", url: "images/photos/map1.png" },
     { name: "Google Classroom", url: "https://classroom.google.com/h/st" }
   ],
   "Skl stuff": [
