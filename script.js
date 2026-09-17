@@ -24,12 +24,45 @@ const DATA = {
   ]
 };
 
+// Distinct colors and icons for each component in the sidebar menu
+const PALETTES = [
+  {
+    iconBg: '#1a73e8',        // Blue
+    activeBg: '#e8f0fe',
+    activeText: '#1a73e8',
+    iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`
+  },
+  {
+    iconBg: '#1e8e3e',        // Green
+    activeBg: '#e6f4ea',
+    activeText: '#137333',
+    iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>`
+  },
+  {
+    iconBg: '#f9ab00',        // Amber/Yellow
+    activeBg: '#fef7e0',
+    activeText: '#b06000',
+    iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>`
+  },
+  {
+    iconBg: '#9334e6',        // Purple
+    activeBg: '#f3e8fd',
+    activeText: '#7627b5',
+    iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`
+  },
+  {
+    iconBg: '#d93025',        // Red
+    activeBg: '#fce8e6',
+    activeText: '#c5221f',
+    iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>`
+  }
+];
+
 const sidebarNavEl = document.getElementById('sidebar-nav');
 const groupsEl = document.getElementById('groups');
 const emptyEl = document.getElementById('empty');
 const filterEl = document.getElementById('filter');
 
-// Helper function to turn group names into safe HTML element IDs
 function slugify(text) {
   return text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-');
 }
@@ -40,11 +73,18 @@ function renderSidebar() {
 
   groupKeys.forEach((groupName, index) => {
     const slug = slugify(groupName);
+    const palette = PALETTES[index % PALETTES.length];
+
     const button = document.createElement('button');
     button.className = `nav-item ${index === 0 ? 'active' : ''}`;
+    
+    // Set custom CSS variables on each button for unique active colors
+    button.style.setProperty('--item-active-bg', palette.activeBg);
+    button.style.setProperty('--item-active-text', palette.activeText);
+
     button.innerHTML = `
-      <div class="nav-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      <div class="nav-icon" style="background-color: ${palette.iconBg};">
+        ${palette.iconSvg}
       </div>
       <span>${groupName}</span>
     `;
