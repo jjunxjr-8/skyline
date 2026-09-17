@@ -9,8 +9,10 @@ const DATA = {
     { name: "COSMOS QuickScope — AI Powered Email Search", url: "https://nlcscosmos.com/quickscope" },
     { name: "COSMOS Larry — NLCS Library's AI Chatbot", url: "#" }
   ],
-  "Maps & Photos": [
-    { name: "Campus Map Overview", url: "images/photos/map1.png" },
+  "Maps": [
+    { name: "Senior School First Floor Map", url: "images/photos/map1.png" },
+    { name: "Senior School Second Floor Map", url: "images/photos/map2.png" },
+    { name: "Senior School Third Floor Map", url: "images/photos/map3.png" },
     { name: "Google Classroom", url: "https://classroom.google.com/h/st" }
   ],
   "Skl stuff": [
