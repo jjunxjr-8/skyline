@@ -33,26 +33,26 @@ const DATA = {
   ]
 };
 
-// Purple-toned color palettes for category cards
+// Purple-toned color palettes with unified light grey card backgrounds (#f4f4f6)
 const PALETTES = [
-  // 1. Primary Royal Purple (#6F2BDB)
+  // 1. Primary Royal Purple
   {
     iconBg: '#6f2bdb',      
     activeBg: '#f0e6fa',
     activeText: '#501e9e',
-    cardBg: '#f9f5fc',      
-    cardBorder: '#e5d5f7',
+    cardBg: '#f4f4f6',      
+    cardBorder: '#e2e2e7',
     btnBg: '#f0e6fa',        
     btnText: '#501e9e',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`
   },
-  // 2. Bright Orchid / Light Purple (#A663CC)
+  // 2. Bright Orchid / Light Purple
   {
     iconBg: '#a663cc',      
     activeBg: '#f4ecf9',
     activeText: '#7b3aa2',
-    cardBg: '#fbf7fd',
-    cardBorder: '#edd9f7',
+    cardBg: '#f4f4f6',
+    cardBorder: '#e2e2e7',
     btnBg: '#f4ecf9',
     btnText: '#7b3aa2',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>`
@@ -62,8 +62,8 @@ const PALETTES = [
     iconBg: '#5821b3',      
     activeBg: '#eee4fa',
     activeText: '#411689',
-    cardBg: '#f8f4fc',
-    cardBorder: '#dfccf7',
+    cardBg: '#f4f4f6',
+    cardBorder: '#e2e2e7',
     btnBg: '#eee4fa',
     btnText: '#411689',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>`
@@ -73,8 +73,8 @@ const PALETTES = [
     iconBg: '#8e44ad',        
     activeBg: '#f5eafb',
     activeText: '#6c2c88',
-    cardBg: '#faf4fc',
-    cardBorder: '#ebdaf5',
+    cardBg: '#f4f4f6',
+    cardBorder: '#e2e2e7',
     btnBg: '#f5eafb',
     btnText: '#6c2c88',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`
@@ -84,8 +84,8 @@ const PALETTES = [
     iconBg: '#7d3c98',        
     activeBg: '#f3e9f7',
     activeText: '#5b2c6f',
-    cardBg: '#f9f3fa',
-    cardBorder: '#e8d4ee',
+    cardBg: '#f4f4f6',
+    cardBorder: '#e2e2e7',
     btnBg: '#f3e9f7',
     btnText: '#5b2c6f',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>`
@@ -95,8 +95,8 @@ const PALETTES = [
     iconBg: '#6c5ce7',        
     activeBg: '#edeafc',
     activeText: '#4b38d3',
-    cardBg: '#f6f5fe',
-    cardBorder: '#dcd6fb',
+    cardBg: '#f4f4f6',
+    cardBorder: '#e2e2e7',
     btnBg: '#edeafc',
     btnText: '#4b38d3',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>`
@@ -106,8 +106,8 @@ const PALETTES = [
     iconBg: '#2a1b40',        
     activeBg: '#f0e6fa',
     activeText: '#6f2bdb',
-    cardBg: '#f7f4fa',
-    cardBorder: '#e5d5f7',
+    cardBg: '#f4f4f6',
+    cardBorder: '#e2e2e7',
     btnBg: '#f0e6fa',
     btnText: '#6f2bdb',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>`
