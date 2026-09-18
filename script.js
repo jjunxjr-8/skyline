@@ -27,9 +27,6 @@ const DATA = {
   ],
   "Parser for CAS": [
     { name: "CAS Parser Tool", url: "https://cas.nlcscosmos.com" }
-  ],
-  "OneClick": [
-    { name: "COSMOS OneClick — AI Powered Drive Search", url: "https://nlcscosmos.com/oneclick" }
   ]
 };
 
