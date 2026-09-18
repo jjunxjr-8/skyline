@@ -1,12 +1,13 @@
 :root {
   --bg-color: #ffffff;
-  --sidebar-bg: #f8f9fa;
-  --card-border: #dadce0;
-  --input-bg: #f1f3f4;
-  --input-border: #dadce0;
-  --text-main: #202124;
-  --text-muted: #5f6368;
-  --accent-blue: #1a73e8;
+  --sidebar-bg: #fdfbf7;
+  --card-border: #f0e6df;
+  --input-bg: #f8f1ec;
+  --input-border: #e8dcd5;
+  --text-main: #2d241e;
+  --text-muted: #7a6b63;
+  --accent-orange: #e65100;
+  --accent-orange-hover: #f57c00;
 }
 
 * {
@@ -56,7 +57,7 @@ body {
 }
 
 .logo-accent {
-  color: var(--accent-blue);
+  color: var(--accent-orange);
 }
 
 .sidebar-nav {
@@ -84,7 +85,7 @@ body {
 }
 
 .nav-item:hover {
-  background-color: #eeeef0;
+  background-color: #fff3e0;
 }
 
 .nav-item.active {
@@ -128,11 +129,11 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #294f7b;
+  background: linear-gradient(135deg, #ff7043 0%, #e65100 100%);
   padding: 12px 24px;
   border-radius: 12px;
   margin-bottom: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(230, 81, 0, 0.25);
 }
 
 .hero-logo {
@@ -171,8 +172,8 @@ body {
 
 .search-box:focus-within {
   background-color: #ffffff;
-  border-color: var(--accent-blue);
-  box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+  border-color: var(--accent-orange);
+  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.2);
 }
 
 .search-icon {
@@ -231,7 +232,7 @@ body {
 }
 
 .link-wrapper:hover {
-  background-color: var(--row-hover-bg, rgba(0, 0, 0, 0.04));
+  background-color: var(--row-hover-bg, rgba(230, 81, 0, 0.05));
 }
 
 .link-row {
@@ -321,7 +322,7 @@ body {
   position: absolute;
   width: 180px;
   height: 180px;
-  border: 2px solid var(--accent-blue, #1a73e8);
+  border: 2px solid var(--accent-orange);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   pointer-events: none;
@@ -408,7 +409,6 @@ body {
   }
 }
 
-
 /* Fixed Floating OneClick Badge (Bottom Right) */
 .oneclick-floating-widget {
   position: fixed;
@@ -422,7 +422,7 @@ body {
   background-color: #ffffff;
   border: 1px solid var(--card-border);
   border-radius: 30px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 18px rgba(230, 81, 0, 0.15);
   text-decoration: none;
   color: var(--text-main);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -430,15 +430,15 @@ body {
 
 .oneclick-floating-widget:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
-  background-color: #f8f9fa;
+  box-shadow: 0 6px 22px rgba(230, 81, 0, 0.25);
+  background-color: #fffbf7;
 }
 
 .oneclick-icon {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: var(--accent-blue);
+  background-color: var(--accent-orange);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -464,6 +464,6 @@ body {
 }
 
 .oneclick-arrow {
-  color: var(--accent-blue);
+  color: var(--accent-orange);
   margin-left: 2px;
 }
