@@ -33,83 +33,83 @@ const DATA = {
   ]
 };
 
-// Orange-toned color palettes for category cards
+// Green-toned color palettes for category cards
 const PALETTES = [
-  // 1. Deep Flame Orange
+  // 1. Classic Emerald Green
   {
-    iconBg: '#e65100',      
-    activeBg: '#fff3e0',
-    activeText: '#e65100',
-    cardBg: '#fffbf5',      
-    cardBorder: '#ffe0b2',
-    btnBg: '#fff3e0',       
-    btnText: '#e65100',
+    iconBg: '#1e8e3e',      
+    activeBg: '#e6f4ea',
+    activeText: '#137333',
+    cardBg: '#f3f9f5',      
+    cardBorder: '#ceead6',
+    btnBg: '#e6f4ea',       
+    btnText: '#137333',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`
   },
-  // 2. Amber Orange
+  // 2. Fresh Teal-Green
   {
-    iconBg: '#f57c00',      
-    activeBg: '#fff8e1',
-    activeText: '#ef6c00',
-    cardBg: '#fffdf7',
-    cardBorder: '#ffecb3',
-    btnBg: '#fff8e1',
-    btnText: '#ef6c00',
+    iconBg: '#00897b',      
+    activeBg: '#e0f2f1',
+    activeText: '#00695c',
+    cardBg: '#f0fdfa',
+    cardBorder: '#b2dfdb',
+    btnBg: '#e0f2f1',
+    btnText: '#00695c',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>`
   },
-  // 3. Coral Red-Orange
+  // 3. Warm Olive / Lime Green
   {
-    iconBg: '#ff7043',      
-    activeBg: '#fbe9e7',
-    activeText: '#d84315',
-    cardBg: '#fff8f6',
-    cardBorder: '#ffccbc',
-    btnBg: '#fbe9e7',
-    btnText: '#d84315',
+    iconBg: '#689f38',      
+    activeBg: '#f1f8e9',
+    activeText: '#33691e',
+    cardBg: '#f8fcf5',
+    cardBorder: '#dce7c8',
+    btnBg: '#f1f8e9',
+    btnText: '#33691e',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>`
   },
-  // 4. Burnt Terracotta
+  // 4. Deep Pine Green
   {
-    iconBg: '#d84315',       
-    activeBg: '#fbe9e7',
-    activeText: '#bf360c',
-    cardBg: '#fdf6f5',
-    cardBorder: '#ffab91',
-    btnBg: '#fbe9e7',
-    btnText: '#bf360c',
+    iconBg: '#2e7d32',       
+    activeBg: '#e8f5e9',
+    activeText: '#1b5e20',
+    cardBg: '#f2f9f3',
+    cardBorder: '#c8e6c9',
+    btnBg: '#e8f5e9',
+    btnText: '#1b5e20',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`
   },
-  // 5. Warm Tangerine
+  // 5. Bright Mint Green
   {
-    iconBg: '#ff8a65',       
-    activeBg: '#fbe9e7',
-    activeText: '#e64a19',
-    cardBg: '#fff9f8',
-    cardBorder: '#ffccbc',
-    btnBg: '#fbe9e7',
-    btnText: '#e64a19',
+    iconBg: '#43a047',       
+    activeBg: '#e8f5e9',
+    activeText: '#2e7d32',
+    cardBg: '#f4faf5',
+    cardBorder: '#c8e6c9',
+    btnBg: '#e8f5e9',
+    btnText: '#2e7d32',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>`
   },
-  // 6. Warm Cinnamon
+  // 6. Jade Green
   {
-    iconBg: '#e65100',       
-    activeBg: '#fff3e0',
-    activeText: '#bf360c',
-    cardBg: '#fffbf5',
-    cardBorder: '#ffe0b2',
-    btnBg: '#fff3e0',
-    btnText: '#bf360c',
+    iconBg: '#0f9d58',       
+    activeBg: '#e6f4ea',
+    activeText: '#0d652d',
+    cardBg: '#f3fbf6',
+    cardBorder: '#ceead6',
+    btnBg: '#e6f4ea',
+    btnText: '#0d652d',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>`
   },
-  // 7. Dark Charcoal Orange (Parser for CAS)
+  // 7. Dark Charcoal Forest (Parser for CAS)
   {
-    iconBg: '#2d241e',       
-    activeBg: '#fff3e0',
-    activeText: '#e65100',
-    cardBg: '#fdfbf7',
-    cardBorder: '#ffe0b2',
-    btnBg: '#fff3e0',
-    btnText: '#e65100',
+    iconBg: '#1c2820',       
+    activeBg: '#e6f4ea',
+    activeText: '#1e8e3e',
+    cardBg: '#f4f8f5',
+    cardBorder: '#ceead6',
+    btnBg: '#e6f4ea',
+    btnText: '#1e8e3e',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>`
   }
 ];
