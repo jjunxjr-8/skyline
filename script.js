@@ -15,7 +15,7 @@ const DATA = {
     { name: "Senior School Third Floor Map", url: "images/photos/map3.png" },
     { name: "Google Classroom", url: "https://classroom.google.com/h/st" }
   ],
-  "Isams": [
+  "ISAMS": [
     { name: "School Calendar", url: "#" },
     { name: "Parent Portal", url: "#" }
   ],
