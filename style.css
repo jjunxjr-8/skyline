@@ -1,9 +1,9 @@
 :root {
   --bg-color: #ffffff;
-  --sidebar-bg: #f9f5fc;
-  --card-border: #e6d8f5;
-  --input-bg: #f4effa;
-  --input-border: #dac8f2;
+  --sidebar-bg: #f4f4f6; /* Shared Light Grey */
+  --card-border: #e2e2e7;
+  --input-bg: #f4f4f6;
+  --input-border: #dcdce2;
   --text-main: #1d1526;
   --text-muted: #645673;
   --accent-purple: #6f2bdb;
@@ -86,7 +86,7 @@ body {
 }
 
 .nav-item:hover {
-  background-color: #f0e6fa;
+  background-color: #e8e8ed;
 }
 
 .nav-item.active {
@@ -167,7 +167,7 @@ body {
   background-color: var(--input-bg);
   border-radius: 28px;
   padding: 0 18px;
-  border: 1px solid transparent;
+  border: 1px solid var(--input-border);
   transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 
@@ -205,6 +205,7 @@ body {
 }
 
 .group-card {
+  background-color: var(--sidebar-bg) !important; /* Uniform Light Grey */
   border-radius: 16px;
   padding: 20px 24px;
   border: 1px solid var(--card-border);
