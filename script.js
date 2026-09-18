@@ -29,7 +29,7 @@ const DATA = {
     { name: "Help & Technical Support", url: "#" }
   ],
   "Parser for CAS": [
-    { name: "CAS Parser Tool", url: "https://cas.nlcscosmos.com" }
+    { name: "Download Parser for CAS here", url: "https://cas.nlcscosmos.com" }
   ]
 };
 
