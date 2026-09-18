@@ -24,6 +24,12 @@ const DATA = {
   ],
   "Support": [
     { name: "Help & Technical Support", url: "#" }
+  ],
+  "Parser for CAS": [
+    { name: "CAS Parser Tool", url: "https://cas.nlcscosmos.com" }
+  ],
+  "OneClick": [
+    { name: "COSMOS OneClick — AI Powered Drive Search", url: "https://nlcscosmos.com/oneclick" }
   ]
 };
 
@@ -34,7 +40,7 @@ const PALETTES = [
     activeText: '#1a73e8',
     cardBg: '#f4f8fe',        
     cardBorder: '#d2e3fc',
-    btnBg: '#e8f0fe',          
+    btnBg: '#e8f0fe',         
     btnText: '#1a73e8',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`
   },
@@ -77,6 +83,17 @@ const PALETTES = [
     btnBg: '#fce8e6',
     btnText: '#c5221f',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>`
+  },
+  // Black Palette for "Parser for CAS"
+  {
+    iconBg: '#202124',        
+    activeBg: '#e8eaed',
+    activeText: '#202124',
+    cardBg: '#f8f9fa',
+    cardBorder: '#dadce0',
+    btnBg: '#e8eaed',
+    btnText: '#202124',
+    iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>`
   }
 ];
 
