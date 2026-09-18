@@ -1,13 +1,14 @@
 :root {
   --bg-color: #ffffff;
-  --sidebar-bg: #f4f8f5;
-  --card-border: #d3e7d8;
-  --input-bg: #edf5ef;
-  --input-border: #c8e2cf;
-  --text-main: #1c2820;
-  --text-muted: #566e5f;
-  --accent-green: #1e8e3e;
-  --accent-green-hover: #137333;
+  --sidebar-bg: #f9f5fc;
+  --card-border: #e6d8f5;
+  --input-bg: #f4effa;
+  --input-border: #dac8f2;
+  --text-main: #1d1526;
+  --text-muted: #645673;
+  --accent-purple: #6f2bdb;
+  --accent-purple-hover: #5821b3;
+  --accent-purple-light: #a663cc;
 }
 
 * {
@@ -57,7 +58,7 @@ body {
 }
 
 .logo-accent {
-  color: var(--accent-green);
+  color: var(--accent-purple);
 }
 
 .sidebar-nav {
@@ -85,7 +86,7 @@ body {
 }
 
 .nav-item:hover {
-  background-color: #e6f4ea;
+  background-color: #f0e6fa;
 }
 
 .nav-item.active {
@@ -129,11 +130,11 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #34a853 0%, #1b5e20 100%);
+  background: linear-gradient(135deg, #a663cc 0%, #6f2bdb 100%);
   padding: 12px 24px;
   border-radius: 12px;
   margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(30, 142, 62, 0.25);
+  box-shadow: 0 4px 12px rgba(111, 43, 219, 0.25);
 }
 
 .hero-logo {
@@ -172,8 +173,8 @@ body {
 
 .search-box:focus-within {
   background-color: #ffffff;
-  border-color: var(--accent-green);
-  box-shadow: 0 2px 8px rgba(30, 142, 62, 0.2);
+  border-color: var(--accent-purple);
+  box-shadow: 0 2px 8px rgba(111, 43, 219, 0.2);
 }
 
 .search-icon {
@@ -232,7 +233,7 @@ body {
 }
 
 .link-wrapper:hover {
-  background-color: var(--row-hover-bg, rgba(30, 142, 62, 0.05));
+  background-color: var(--row-hover-bg, rgba(111, 43, 219, 0.05));
 }
 
 .link-row {
@@ -322,7 +323,7 @@ body {
   position: absolute;
   width: 180px;
   height: 180px;
-  border: 2px solid var(--accent-green);
+  border: 2px solid var(--accent-purple);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   pointer-events: none;
@@ -422,7 +423,7 @@ body {
   background-color: #ffffff;
   border: 1px solid var(--card-border);
   border-radius: 30px;
-  box-shadow: 0 4px 18px rgba(30, 142, 62, 0.15);
+  box-shadow: 0 4px 18px rgba(111, 43, 219, 0.15);
   text-decoration: none;
   color: var(--text-main);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -430,15 +431,15 @@ body {
 
 .oneclick-floating-widget:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 22px rgba(30, 142, 62, 0.25);
-  background-color: #f3f9f5;
+  box-shadow: 0 6px 22px rgba(111, 43, 219, 0.25);
+  background-color: #f8f3fc;
 }
 
 .oneclick-icon {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: var(--accent-green);
+  background-color: var(--accent-purple);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -464,6 +465,6 @@ body {
 }
 
 .oneclick-arrow {
-  color: var(--accent-green);
+  color: var(--accent-purple);
   margin-left: 2px;
 }
