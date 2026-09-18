@@ -33,76 +33,83 @@ const DATA = {
   ]
 };
 
+// Orange-toned color palettes for category cards
 const PALETTES = [
+  // 1. Deep Flame Orange
   {
-    iconBg: '#1a73e8',        
-    activeBg: '#e8f0fe',
-    activeText: '#1a73e8',
-    cardBg: '#f4f8fe',        
-    cardBorder: '#d2e3fc',
-    btnBg: '#e8f0fe',         
-    btnText: '#1a73e8',
+    iconBg: '#e65100',      
+    activeBg: '#fff3e0',
+    activeText: '#e65100',
+    cardBg: '#fffbf5',      
+    cardBorder: '#ffe0b2',
+    btnBg: '#fff3e0',       
+    btnText: '#e65100',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`
   },
+  // 2. Amber Orange
   {
-    iconBg: '#1e8e3e',      
-    activeBg: '#e6f4ea',
-    activeText: '#137333',
-    cardBg: '#f3f9f5',
-    cardBorder: '#ceead6',
-    btnBg: '#e6f4ea',
-    btnText: '#137333',
+    iconBg: '#f57c00',      
+    activeBg: '#fff8e1',
+    activeText: '#ef6c00',
+    cardBg: '#fffdf7',
+    cardBorder: '#ffecb3',
+    btnBg: '#fff8e1',
+    btnText: '#ef6c00',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>`
   },
+  // 3. Coral Red-Orange
   {
-    iconBg: '#f9ab00',        
-    activeBg: '#fef7e0',
-    activeText: '#b06000',
-    cardBg: '#fffdf5',
-    cardBorder: '#feefc3',
-    btnBg: '#fef7e0',
-    btnText: '#b06000',
+    iconBg: '#ff7043',      
+    activeBg: '#fbe9e7',
+    activeText: '#d84315',
+    cardBg: '#fff8f6',
+    cardBorder: '#ffccbc',
+    btnBg: '#fbe9e7',
+    btnText: '#d84315',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>`
   },
+  // 4. Burnt Terracotta
   {
-    iconBg: '#9334e6',       
-    activeBg: '#f3e8fd',
-    activeText: '#7627b5',
-    cardBg: '#faf5fe',
-    cardBorder: '#e9d2fd',
-    btnBg: '#f3e8fd',
-    btnText: '#7627b5',
+    iconBg: '#d84315',       
+    activeBg: '#fbe9e7',
+    activeText: '#bf360c',
+    cardBg: '#fdf6f5',
+    cardBorder: '#ffab91',
+    btnBg: '#fbe9e7',
+    btnText: '#bf360c',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`
   },
+  // 5. Warm Tangerine
   {
-    iconBg: '#d93025',        
-    activeBg: '#fce8e6',
-    activeText: '#c5221f',
-    cardBg: '#fdf5f5',
-    cardBorder: '#fad2cf',
-    btnBg: '#fce8e6',
-    btnText: '#c5221f',
+    iconBg: '#ff8a65',       
+    activeBg: '#fbe9e7',
+    activeText: '#e64a19',
+    cardBg: '#fff9f8',
+    cardBorder: '#ffccbc',
+    btnBg: '#fbe9e7',
+    btnText: '#e64a19',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>`
   },
+  // 6. Warm Cinnamon
   {
-    iconBg: '#d93025',        
-    activeBg: '#fce8e6',
-    activeText: '#c5221f',
-    cardBg: '#fdf5f5',
-    cardBorder: '#fad2cf',
-    btnBg: '#fce8e6',
-    btnText: '#c5221f',
+    iconBg: '#e65100',       
+    activeBg: '#fff3e0',
+    activeText: '#bf360c',
+    cardBg: '#fffbf5',
+    cardBorder: '#ffe0b2',
+    btnBg: '#fff3e0',
+    btnText: '#bf360c',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>`
   },
-  // Black Palette for "Parser for CAS"
+  // 7. Dark Charcoal Orange (Parser for CAS)
   {
-    iconBg: '#202124',        
-    activeBg: '#e8eaed',
-    activeText: '#202124',
-    cardBg: '#f8f9fa',
-    cardBorder: '#dadce0',
-    btnBg: '#e8eaed',
-    btnText: '#202124',
+    iconBg: '#2d241e',       
+    activeBg: '#fff3e0',
+    activeText: '#e65100',
+    cardBg: '#fdfbf7',
+    cardBorder: '#ffe0b2',
+    btnBg: '#fff3e0',
+    btnText: '#e65100',
     iconSvg: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>`
   }
 ];
@@ -246,31 +253,26 @@ function render(query) {
         const zoomSquare = wrapper.querySelector('.zoom-square');
         let isRightDragging = false;
 
-        // Prevent default right-click context menu on image
         zoomWrapper.addEventListener('contextmenu', (e) => e.preventDefault());
 
         const updateZoomSquare = (e) => {
           const rect = previewImg.getBoundingClientRect();
 
-          // Calculate mouse position relative to image
           let x = e.clientX - rect.left;
           let y = e.clientY - rect.top;
 
-          // Clamp inside image bounds
           x = Math.max(0, Math.min(x, rect.width));
           y = Math.max(0, Math.min(y, rect.height));
 
-          const squareSize = 180; // 180px x 180px square
-          const zoomFactor = 2.5;  // 2.5x magnification factor
+          const squareSize = 180; 
+          const zoomFactor = 2.5;  
 
-          // Center the zoom square under the mouse
           const squareX = x - squareSize / 2;
           const squareY = y - squareSize / 2;
 
           zoomSquare.style.left = `${squareX}px`;
           zoomSquare.style.top = `${squareY}px`;
 
-          // Calculate scaled background size & offset
           const bgWidth = rect.width * zoomFactor;
           const bgHeight = rect.height * zoomFactor;
 
@@ -282,7 +284,7 @@ function render(query) {
         };
 
         zoomWrapper.addEventListener('mousedown', (e) => {
-          if (e.button === 2) { // Right Click
+          if (e.button === 2) { 
             e.preventDefault();
             isRightDragging = true;
             zoomSquare.style.backgroundImage = `url("${previewImg.src}")`;
